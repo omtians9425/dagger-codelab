@@ -1,5 +1,6 @@
 package com.github.outerheavenproject.wanstagram.ui.shiba
 
+import android.util.Log
 import com.github.outerheavenproject.wanstagram.data.DogService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -15,6 +16,7 @@ class ShibaPresenter @Inject constructor(
         this.view = view
     }
     override suspend fun start() {
+        Log.i("ShibaPresenter", dogService.toString())
         val dogs = dogService.getBleed(bleed = "shiba", limit = 20)
         withContext(Dispatchers.Main) {
             view.updateDogs(dogs)
