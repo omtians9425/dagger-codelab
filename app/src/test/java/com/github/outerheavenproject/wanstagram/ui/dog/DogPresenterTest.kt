@@ -4,6 +4,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.outerheavenproject.wanstagram.data.Dog
 import com.github.outerheavenproject.wanstagram.data.DogService
 import com.github.outerheavenproject.wanstagram.data.Dogs
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
 
@@ -13,12 +14,24 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class DogPresenterTest {
 
+    private lateinit var presenter: DogPresenter
+    private lateinit var dogService: DogService
+    private lateinit var view: TestView
+
     @Before
     fun setUp() {
+        dogService = TestDogService()
+        view = TestView()
+        presenter = DogPresenter(dogService = dogService)
+        presenter.attachView(view)
     }
 
     @Test
     fun start() {
+        runBlockingTest {
+            presenter.start()
+        }
+        assertEquals(view.called, 1)
     }
 }
 
