@@ -4,7 +4,6 @@ import android.util.Log
 import com.github.outerheavenproject.wanstagram.data.DogService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import com.github.outerheavenproject.wanstagram.data.getDogService
 import javax.inject.Inject
 
 /**
