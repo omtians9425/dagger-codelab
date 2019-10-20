@@ -14,7 +14,7 @@ interface AppComponent {
         fun create(): AppComponent
     }
 
-    //Annotated member with @Inject in these arguments(dogFragment and shibaFragment) is Injected to them.
+    //Annotated members with @Inject in these arguments(dogFragment and shibaFragment) are Injected to them.
     fun inject(dogFragment: DogFragment): DogFragment
     fun inject(shibaFragment: ShibaFragment): ShibaFragment
 }
