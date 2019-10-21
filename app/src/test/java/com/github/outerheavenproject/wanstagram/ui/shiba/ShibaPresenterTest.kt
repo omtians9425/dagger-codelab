@@ -1,9 +1,11 @@
-package com.github.outerheavenproject.wanstagram.ui.dog
+package com.github.outerheavenproject.wanstagram.ui.shiba
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.outerheavenproject.wanstagram.data.Dog
 import com.github.outerheavenproject.wanstagram.data.DogService
 import com.github.outerheavenproject.wanstagram.data.Dogs
+import com.github.outerheavenproject.wanstagram.ui.dog.DogContract
+import com.github.outerheavenproject.wanstagram.ui.dog.DogPresenter
 import com.google.common.truth.Truth
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
@@ -13,24 +15,25 @@ import org.junit.Assert.*
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class DogPresenterTest {
-
-    private lateinit var presenter: DogPresenter
+class ShibaPresenterTest {
     private lateinit var dogService: DogService
+    private lateinit var dogPresenter: DogPresenter
     private lateinit var view: TestView
+
+
 
     @Before
     fun setUp() {
         dogService = TestDogService()
         view = TestView()
-        presenter = DogPresenter(dogService = dogService)
-        presenter.attachView(view)
+        dogPresenter = DogPresenter(dogService = dogService)
+        dogPresenter.attachView(view)
     }
 
     @Test
     fun start() {
         runBlockingTest {
-            presenter.start()
+            dogPresenter.start()
         }
         Truth.assertThat(view.called).isEqualTo(1)
     }
@@ -50,7 +53,7 @@ private class TestDogService : DogService {
     }
 }
 
-private class TestView : DogContract.View {
+private class TestView: DogContract.View {
     var called = 0
     override fun updateDogs(dogs: Dogs) {
         called++
