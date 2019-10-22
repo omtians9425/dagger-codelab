@@ -5,10 +5,6 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 interface DogFragmentModule {
-    @ContributesAndroidInjector(
-        modules = [
-            DogFragmentModule::class
-        ]
-    )
+    @ContributesAndroidInjector
     fun contributeDogFragment(): DogFragment
 }
