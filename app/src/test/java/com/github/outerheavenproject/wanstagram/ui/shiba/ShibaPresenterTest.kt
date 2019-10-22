@@ -7,6 +7,7 @@ import com.github.outerheavenproject.wanstagram.data.Dogs
 import com.github.outerheavenproject.wanstagram.ui.dog.DogContract
 import com.github.outerheavenproject.wanstagram.ui.dog.DogPresenter
 import com.google.common.truth.Truth
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
@@ -30,6 +31,7 @@ class ShibaPresenterTest {
     }
 
     @Test
+    @ExperimentalCoroutinesApi
     fun start() {
         runBlockingTest {
             dogPresenter.start()
