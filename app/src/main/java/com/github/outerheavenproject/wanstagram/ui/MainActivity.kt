@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         subComponent = (application as App)
             .appComponent
-            .mainActivtySubcompoentFactory()
+            .mainActivitySubComponentFactory()
             .create(this)
         subComponent.inject(this)
         setContentView(R.layout.main_activity)

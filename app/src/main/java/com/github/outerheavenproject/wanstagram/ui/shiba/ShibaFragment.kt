@@ -23,7 +23,9 @@ class ShibaFragment : Fragment(),
 
     @Inject
     lateinit var presenter: ShibaPresenter
-    private lateinit var dogAdapter: DogAdapter
+
+    @Inject
+    lateinit var dogAdapter: DogAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +44,6 @@ class ShibaFragment : Fragment(),
         super.onViewCreated(view, savedInstanceState)
 
         val recycler = view.findViewById<RecyclerView>(R.id.recycler)
-        dogAdapter = DogAdapter(navigator = AppNavigatorImpl())
         recycler.layoutManager = GridLayoutManager(context, 2)
         recycler.adapter = dogAdapter
 

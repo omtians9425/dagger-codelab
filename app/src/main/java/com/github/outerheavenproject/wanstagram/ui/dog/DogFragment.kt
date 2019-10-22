@@ -23,7 +23,9 @@ class DogFragment : Fragment(),
 
     @Inject
     lateinit var presenter: DogPresenter
-    private lateinit var dogAdapter: DogAdapter
+
+    @Inject
+    lateinit var dogAdapter: DogAdapter
 
     override fun onAttach(context: Context) {
 //        (requireActivity().application as App).appComponent.inject(this)
@@ -43,7 +45,6 @@ class DogFragment : Fragment(),
         super.onViewCreated(view, savedInstanceState)
 
         val recycler = view.findViewById<RecyclerView>(R.id.recycler)
-        dogAdapter = DogAdapter(navigator = AppNavigatorImpl())
         recycler.layoutManager = GridLayoutManager(context, 2)
         recycler.adapter = dogAdapter
 

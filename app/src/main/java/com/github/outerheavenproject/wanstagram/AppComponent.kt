@@ -1,7 +1,5 @@
 package com.github.outerheavenproject.wanstagram
 
-import com.github.outerheavenproject.wanstagram.ui.dog.DogFragment
-import com.github.outerheavenproject.wanstagram.ui.shiba.ShibaFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -24,6 +22,6 @@ interface AppComponent {
 //    fun inject(shibaFragment: ShibaFragment): ShibaFragment
 
     //convert to inject by SubComponent
-    fun mainActivtySubcompoentFactory(): MainActivitySubComponent.Factory
+    fun mainActivitySubComponentFactory(): MainActivitySubComponent.Factory
 
 }

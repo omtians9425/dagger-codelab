@@ -2,6 +2,7 @@ package com.github.outerheavenproject.wanstagram
 
 import android.content.Context
 import com.github.outerheavenproject.wanstagram.ui.AppNavigator
+import com.github.outerheavenproject.wanstagram.ui.AppNavigatorImpl
 import com.github.outerheavenproject.wanstagram.ui.MainActivity
 import com.github.outerheavenproject.wanstagram.ui.dog.DogFragment
 import com.github.outerheavenproject.wanstagram.ui.shiba.ShibaFragment
@@ -27,5 +28,5 @@ interface MainActivitySubComponent {
 @Module
 interface MainActivityModule {
     @Binds
-    fun bindAppNavigator(appNavigator: AppNavigator): AppNavigator
+    fun bindAppNavigator(appNavigator: AppNavigatorImpl): AppNavigator //an argument is implemented instance.
 }
