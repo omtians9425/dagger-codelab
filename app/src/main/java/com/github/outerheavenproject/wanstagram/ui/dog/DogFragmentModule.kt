@@ -6,7 +6,6 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 interface DogFragmentModule {
-    @MyScope
     @ContributesAndroidInjector
     fun contributeDogFragment(): DogFragment
 }
