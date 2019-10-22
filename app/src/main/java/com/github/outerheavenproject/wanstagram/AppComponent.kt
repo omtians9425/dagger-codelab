@@ -20,7 +20,10 @@ interface AppComponent {
     }
 
     //Annotated members with @Inject in these arguments(dogFragment and shibaFragment) are Injected to them.
-    fun inject(dogFragment: DogFragment): DogFragment
+//    fun inject(dogFragment: DogFragment): DogFragment
+//    fun inject(shibaFragment: ShibaFragment): ShibaFragment
 
-    fun inject(shibaFragment: ShibaFragment): ShibaFragment
+    //convert to inject by SubComponent
+    fun mainActivtySubcompoentFactory(): MainActivitySubComponent.Factory
+
 }

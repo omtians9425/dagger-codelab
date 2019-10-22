@@ -14,6 +14,7 @@ import com.github.outerheavenproject.wanstagram.R
 import com.github.outerheavenproject.wanstagram.data.Dogs
 import com.github.outerheavenproject.wanstagram.ui.AppNavigatorImpl
 import com.github.outerheavenproject.wanstagram.ui.DogAdapter
+import com.github.outerheavenproject.wanstagram.ui.MainActivity
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -33,7 +34,8 @@ class ShibaFragment : Fragment(),
     }
 
     override fun onAttach(context: Context) {
-        (requireActivity().application as App).appComponent.inject(this)
+//        (requireActivity().application as App).appComponent.inject(this)
+        (requireActivity() as MainActivity).subComponent.inject(this)
         super.onAttach(context)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
