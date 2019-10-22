@@ -21,7 +21,6 @@ class ShibaPresenterTest {
     private lateinit var view: TestView
 
 
-
     @Before
     fun setUp() {
         dogService = TestDogService()

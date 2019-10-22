@@ -12,6 +12,10 @@ import org.junit.Test
 import org.junit.Assert.*
 import org.junit.runner.RunWith
 
+/**
+ * DogPresenter depends on DogService and DogContract.View.
+ * So Replace these dependency objects with Mock.
+ */
 @RunWith(AndroidJUnit4::class)
 class DogPresenterTest {
 
