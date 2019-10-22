@@ -6,7 +6,12 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [DataModule::class])
+@Component(
+    modules = [
+        DataModule::class,
+        OkHttpClientModule::class
+    ]
+)
 interface AppComponent {
     @Component.Factory
     interface Factory {
@@ -16,5 +21,6 @@ interface AppComponent {
 
     //Annotated members with @Inject in these arguments(dogFragment and shibaFragment) are Injected to them.
     fun inject(dogFragment: DogFragment): DogFragment
+
     fun inject(shibaFragment: ShibaFragment): ShibaFragment
 }
