@@ -3,22 +3,30 @@ package com.github.outerheavenproject.wanstagram.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
-import com.github.outerheavenproject.wanstagram.App
-import com.github.outerheavenproject.wanstagram.MainActivitySubComponent
 import com.github.outerheavenproject.wanstagram.R
 import com.github.outerheavenproject.wanstagram.ui.dog.DogFragment
 import com.github.outerheavenproject.wanstagram.ui.shiba.ShibaFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
-    lateinit var subComponent: MainActivitySubComponent
+class MainActivity : AppCompatActivity(), HasAndroidInjector {
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
+//    lateinit var subComponent: MainActivitySubComponent
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
+
         super.onCreate(savedInstanceState)
-        subComponent = (application as App)
-            .appComponent
-            .mainActivitySubComponentFactory()
-            .create(this)
-        subComponent.inject(this)
+//        subComponent = (application as App)
+//            .appComponent
+//            .mainActivitySubComponentFactory()
+//            .create(this)
+//        subComponent.inject(this)
         setContentView(R.layout.main_activity)
 
         if (savedInstanceState == null) {
@@ -44,4 +52,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
+
+    override fun androidInjector(): AndroidInjector<Any> = dispatchingAndroidInjector
 }
