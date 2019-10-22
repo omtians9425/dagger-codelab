@@ -35,6 +35,9 @@ class DogPresenterTest {
     @Test
     @ExperimentalCoroutinesApi
     fun start() {
+        /*
+        DogPresenter#start is suspend function, so use it in a couroutine builder dedicated to testing.
+         */
         runBlockingTest {
             presenter.start()
         }
