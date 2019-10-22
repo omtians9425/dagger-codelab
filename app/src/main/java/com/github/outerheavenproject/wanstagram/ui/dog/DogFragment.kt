@@ -18,8 +18,14 @@ import javax.inject.Inject
 
 class DogFragment : Fragment(),
     DogContract.View {
+
+    //This code needs fix(bind-annotated method) because requires interface type.
     @Inject
     lateinit var presenter: DogContract.Presenter
+
+    //This code needs no fix
+//    @Inject
+//    lateinit var presenter: DogPresenter
 
     @Inject
     lateinit var dogAdapter: DogAdapter
