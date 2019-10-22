@@ -10,7 +10,7 @@ import dagger.BindsInstance
 import dagger.Module
 import dagger.Subcomponent
 
-@Subcomponent
+@Subcomponent(modules = [MainActivityModule::class])
 interface MainActivitySubComponent {
     @Subcomponent.Factory
     interface Factory {
