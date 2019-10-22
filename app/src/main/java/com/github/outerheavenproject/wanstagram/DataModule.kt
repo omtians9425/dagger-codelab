@@ -8,18 +8,20 @@ import kotlinx.serialization.json.Json
 import retrofit2.Retrofit
 import javax.inject.Singleton
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
 import retrofit2.create
 
 @Module
 class DataModule {
     @Singleton
     @Provides
-    fun provideRetrofit(): Retrofit =
+    fun provideRetrofit(client: OkHttpClient): Retrofit =
         Retrofit.Builder()
             .baseUrl("https://dog.ceo/api/")
             .addConverterFactory(
                 Json.asConverterFactory("application/json".toMediaType())
             )
+            .client(client)
             .build()
 
     @Singleton
