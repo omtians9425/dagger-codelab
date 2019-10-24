@@ -9,6 +9,7 @@ import androidx.core.os.bundleOf
 import com.github.outerheavenproject.wanstagram.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.android.AndroidInjection
+import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 class DogActionBottomSheetDialogFragment : BottomSheetDialogFragment(), DogActionBottomSheetContract.View {
@@ -29,7 +30,7 @@ class DogActionBottomSheetDialogFragment : BottomSheetDialogFragment(), DogActio
     }
 
     override fun onAttach(context: Context) {
-//        AndroidInjection.inject(this)
+        AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
 

@@ -15,9 +15,9 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), HasAndroidInjector, MainContruct.View {
+class MainActivity : AppCompatActivity(), HasAndroidInjector, MainContract.View {
     @Inject
-    lateinit var presenter: MainContruct.Presenter
+    lateinit var presenter: MainContract.Presenter
 
     @Inject
     lateinit var navigator: AppNavigator

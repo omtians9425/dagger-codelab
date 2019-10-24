@@ -1,6 +1,6 @@
 package com.github.outerheavenproject.wanstagram.ui
 
-interface MainContruct {
+interface MainContract {
     interface View {
         fun shareDogs(dogs: Set<String>)
     }
