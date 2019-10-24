@@ -7,7 +7,9 @@ import dagger.android.ContributesAndroidInjector
 @Module
 interface DogActionBottomSheetDialogFragmentModule {
     @ContributesAndroidInjector(
-        modules = []
+        modules = [
+            DogActionBottomSheetDialogFragmentBindModule::class
+        ]
     )
     fun contributeDogActionBottomSheetFragment(): DogActionBottomSheetDialogFragment
 }
