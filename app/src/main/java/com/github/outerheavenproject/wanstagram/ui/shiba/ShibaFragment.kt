@@ -12,12 +12,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.outerheavenproject.wanstagram.R
 import com.github.outerheavenproject.wanstagram.data.Dogs
 import com.github.outerheavenproject.wanstagram.ui.DogAdapter
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class ShibaFragment : Fragment(),
-    ShibaContract.View {
+    ShibaContract.View, HasAndroidInjector {
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
+
     @Inject
     lateinit var presenter: ShibaPresenter
 
@@ -54,4 +61,6 @@ class ShibaFragment : Fragment(),
     override fun updateDogs(dogs: Dogs) {
         dogAdapter.submitList(dogs.urls)
     }
+
+    override fun androidInjector(): AndroidInjector<Any> = dispatchingAndroidInjector
 }
